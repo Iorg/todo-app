@@ -7,13 +7,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="add-todo.style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <script type="text/javascript" src="add-todo.js"></script>
 </head>
 <body>
     <div class="container"> 
         <h1>Add new Todo</h1>
-        <label for="">Todo description:</label><input type="text" name="" id="">
-        <button type="button" class="btn-save">Save</button>
+        <label for="">Todo description:</label>
+        <input type="text" name="" id="todo-description">
+        <button type="button" class="btn-save" onclick="addTodo()">Save</button>
         <a href="all-todos.html" class="btn-return" onclick="alert">Return to all-todo</a>
     </div>       
     
