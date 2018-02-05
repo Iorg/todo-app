@@ -174,15 +174,6 @@ function zip(arr, newArr) {
     }
     return newVar;
 }
-[
-    ["alice", "dilan"],
-    ["bob", "marijke"],
-    ["john", "saimon"],
-    ["martin", "mila"],
-    ["donald duck", undefined],
-    ["alexander", undefined],
-    ["xxx", undefined]
-];
 var result10 = zip(array, ["dilan", "marijke", "saimon", "mila"]);
 console.log(result10);
 
@@ -192,7 +183,7 @@ function aaaaa(arr) {
 
     for (var i = 0; i < newArr.length; i++) {
         for (var j = i + 1; j < newArr.length; j++) {
-            if (newArr[i].length < newArr[j].length) {
+            if (newArr[i] > newArr[j]) {
                 var tmp = newArr[i]; 
                 newArr[i] = newArr[j];
                 newArr[j] = tmp;
@@ -201,6 +192,11 @@ function aaaaa(arr) {
     }
     return newArr;
 }
+// i = 0, j = 1, ["bob", "john", "alice"] => ["john", "bob", "alice"]
+// i = 0, j = 2, ["john", "bob", "alice"] => ["alice", "bob", "john"]
+// i = 1, j = 2, ["alice", "bob", "john"] => ["alice", "john", "bob"]
+// i = 2, j = 3, ["alice", "bob", "john"] => ["alice", "john", "bob"]
 
-var result10 = aaaaa(["bob", "john", "alice"]);
-// console.log(result10);
+
+var result10 = aaaaa(["bob", "john", "alice", "abcd"]);
+console.log(result10);
