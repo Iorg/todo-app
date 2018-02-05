@@ -1,8 +1,3 @@
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 250px;
-}
 .btn-save {
   background-color: aqua;
   border-color: blue;
@@ -10,4 +5,7 @@
 .btn-return {
   background-color: blanchedalmond;
   border-color: black;
+}
+.no-bottom-margin {
+  margin-bottom: 0 !important
 }

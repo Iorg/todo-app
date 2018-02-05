@@ -1,24 +1,36 @@
-console.log("Hi!");
+var allTodosArray = [];
 
 function addTodo() {
     var todoInput = document.getElementById("todo-description");
     var text = todoInput.value;
 
-    var todos = getAllTodos();
+    allTodosArray.push(text);
 
-    todos.push({
-        text: text,
-        isCompleted: false
-    });
-
-    saveAllTodos(todos);
+    addTodoElementToList(text);
 }
 
-function getAllTodos() {
-    var allTodos = JSON.parse(localStorage.getItem("allTodos")) || [];
-    return allTodos;
+function addTodoElementToList(text) {
+    var todoList = document.getElementById("todo-list")
+
+    var newTodoElement = createTodoElement(text);
+
+    todoList.append(newTodoElement)
 }
 
-function saveAllTodos(todos) {
-    localStorage.setItem('allTodos', JSON.stringify(todos));
+function createTodoElement(text) {
+    var liElement = document.createElement("li");
+    var iElement = document.createElement("i");
+    
+    iElement.textContent = "delete" 
+    iElement.setAttribute("class", "material-icons");
+
+    liElement.setAttribute(
+        "class",
+        "list-group-item d-flex justify-content-between"
+    );
+    liElement.textContent = text;
+    liElement.append(iElement);
+
+    return liElement;
+   
 }
