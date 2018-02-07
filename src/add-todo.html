@@ -16,16 +16,19 @@
 <body>
 
     <div class="container">
-            <h1>Todo app:</h1>
-        <div class="input-group no-bottom-margin">
-            <input id="todo-description" type="text" class="form-control" style="border-bottom-left-radius: 0; border-bottom-width: 0" placeholder="Recipient's username"
-                aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <button class="btn btn-primary" style="border-bottom-right-radius: 0" type="button" onclick="addTodo()">Add todo</button>
+        <h1>Todo app:</h1>
+        <form onsubmit="event.preventDefault();addTodo()">
+            <div class="input-group no-bottom-margin">
+                <input id="todo-description" type="text" class="form-control" style="border-bottom-left-radius: 0; border-bottom-width: 0"
+                    placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+
+                <div class="input-group-append">
+                    <button class="btn btn-primary" style="border-bottom-right-radius: 0" type="button" onclick="addTodo()">Add todo</button>
+                </div>
             </div>
-        </div>
+        </form>
         <ul id="todo-list" class="list-group">
-            
+
         </ul>
     </div>
 
