@@ -53,11 +53,11 @@ var testArray = [
     }
 ];
 
-// Return array of names of both products
+// Return array of names of all products
 function testForAnna(products) {
     var array;
     for (var i = 0; i < products.length; i++) {
-        var product = products[i];
+        var products = products[i];
     }
 
     return array;
@@ -67,14 +67,12 @@ function testForAnna(products) {
 function testForZombieSean(product1s) {
     var price;
     for (var i = 0; i < products.length; i++) {
-        var product = products[i];
+        var products = products[i];
         
     }
 
     return price;
 }
-
-// Calculate sum of length of elements of the array.
 
 var annaResult = testForAnna(testArray);
 
