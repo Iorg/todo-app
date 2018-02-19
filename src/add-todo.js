@@ -1,13 +1,41 @@
-var allTodosArray = [];
+var allTodosArray;
+
+// JSON.stringify // object => string
+// JSON.parse // string => object
+
+allTodosArray = JSON.parse(localStorage.getItem("nosorog"));
+
+if (allTodosArray == null) {
+    allTodosArray = [];
+}
+
+renderTodosArray(allTodosArray);
 
 function addTodo() {
     var todoInput = document.getElementById("todo-description");
     var text = todoInput.value;
 
     allTodosArray.push(text);
+
+    renderTodosArray(allTodosArray);
+
+    localStorage.setItem("nosorog", JSON.stringify(allTodosArray));
+
     todoInput.value = "";
-    todoInput;
-    addTodoElementToList(text);
+
+    console.log(allTodosArray);
+}
+
+function renderTodosArray(array) {
+    // clear todo list
+    var todoList = document.getElementById("todo-list");
+    todoList.innerHTML = "";
+
+    // render all todos array
+    for (let i = 0; i < array.length; i++) {
+        var text = array[i];
+        addTodoElementToList(text);
+    }
 }
 
 function addTodoElementToList(text) {
@@ -41,6 +69,5 @@ function createTodoElement(text) {
 }
 
 function deleteAddTodo() {
-    
     console.log("Deleted");
 }
