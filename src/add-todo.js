@@ -1,21 +1,27 @@
 var allTodosArray;
-
 // JSON.stringify // object => string
 // JSON.parse // string => object
 
 allTodosArray = JSON.parse(localStorage.getItem("nosorog"));
 
+for (let index = 0; index < allTodosArray.length; index++) {
+    // check shom how if we need to change that fucking array    
+}
+
 if (allTodosArray == null) {
     allTodosArray = [];
 }
-
+console.log("Start renderTodosArray");
 renderTodosArray(allTodosArray);
+console.log("End renderTodosArray");
 
 function addTodo() {
+    console.log("Start addTodo");
+
     var todoInput = document.getElementById("todo-description");
     var text = todoInput.value;
 
-    allTodosArray.push(text);
+    allTodosArray.push({name: text});
 
     renderTodosArray(allTodosArray);
 
@@ -32,8 +38,8 @@ function renderTodosArray(array) {
     todoList.innerHTML = "";
 
     // render all todos array
-    for (let i = 0; i < array.length; i++) {
-        var text = array[i];
+    for (var i = 0; i < array.length; i++) {
+        var text = array[i]; 
         addTodoElementToList(text);
     }
 }
@@ -62,7 +68,7 @@ function createTodoElement(text) {
         "class",
         "list-group-item d-flex justify-content-between"
     );
-    liElement.textContent = text;
+    liElement.textContent = text.name;
     liElement.appendChild(iElement);
 
     return liElement;
