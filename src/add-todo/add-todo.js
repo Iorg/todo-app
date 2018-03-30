@@ -1,8 +1,10 @@
+import { createTodoElement } from "./createTodoElement.js";
+
 var allTodosArray;
 // JSON.stringify // object => string
 // JSON.parse // string => object
 
-allTodosArray = JSON.parse(localStorage.getItem("nosorog"));
+allTodosArray = JSON.parse(localStorage.getItem("nosorog")) || [];
 
 for (let index = 0; index < allTodosArray.length; index++) {
     // check shom how if we need to change that fucking array    
@@ -14,6 +16,10 @@ if (allTodosArray == null) {
 console.log("Start renderTodosArray");
 renderTodosArray(allTodosArray);
 console.log("End renderTodosArray");
+
+var addButton = document.getElementById('addTodoBtn');
+
+addButton.onclick = addTodo;
 
 function addTodo() {
     console.log("Start addTodo");
@@ -50,30 +56,4 @@ function addTodoElementToList(text) {
     var newTodoElement = createTodoElement(text);
 
     todoList.appendChild(newTodoElement);
-}
-
-function createTodoElement(text) {
-    var liElement = document.createElement("li");
-    var iElement = document.createElement("i");
-
-    iElement.textContent = "delete";
-    iElement.setAttribute("class", "material-icons");
-    // iElement.setAttribute("onclick", "deleteAddTodo()");
-
-    iElement.onclick = deleteAddTodo;
-
-    // iElement.addEventListener("click", deleteAddTodo)
-
-    liElement.setAttribute(
-        "class",
-        "list-group-item d-flex justify-content-between"
-    );
-    liElement.textContent = text.name;
-    liElement.appendChild(iElement);
-
-    return liElement;
-}
-
-function deleteAddTodo() {
-    console.log("Deleted");
 }
