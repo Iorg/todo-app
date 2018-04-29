@@ -1,11 +1,9 @@
 import { createTodoElement } from "./createTodoElement.js";
 
+import {loadTodos} from "./storage.js";
+import {saveTodos} from "./storage.js";
 var allTodosArray;
-// JSON.stringify // object => string
-// JSON.parse // string => object
-
-allTodosArray = JSON.parse(localStorage.getItem("nosorog")) || [];
-
+allTodosArray = loadTodos();
 for (let index = 0; index < allTodosArray.length; index++) {
     // check shom how if we need to change that fucking array    
 }
@@ -31,7 +29,7 @@ function addTodo() {
 
     renderTodosArray(allTodosArray);
 
-    localStorage.setItem("nosorog", JSON.stringify(allTodosArray));
+    saveTodos (allTodosArray);
 
     todoInput.value = "";
 
