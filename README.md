@@ -1,4 +1,3 @@
-# Hello from the other side
+# Simple Todo App
 
-
-# Hi from Anna!
+This repo is a sandbox for testing/polishing different approaches for making release
